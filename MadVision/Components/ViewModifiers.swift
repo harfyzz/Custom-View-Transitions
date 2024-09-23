@@ -15,6 +15,7 @@ extension View {
             .padding(8)
             .background(.gray.opacity(0.2))
             .clipShape(RoundedRectangle(cornerRadius: 8))
+            .font(.caption.bold())
     }
     
 }

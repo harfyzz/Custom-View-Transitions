@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct FeedComponent: View {
-    @State var feedItem = FeedItem()
+    var feedItem = FeedItem()
+    let deviceWidth = UIScreen.main.bounds.width
     var body: some View {
-        GeometryReader { proxy in
-            VStack(alignment:.leading){
+        
+        VStack(spacing:12){
                 HStack {
                     HStack{
-                        Image("avatar2")
+                        Image(feedItem.creatoravatar)
                             .resizable()
                             .frame(width:48, height: 48)
                             .clipShape(Circle())
-                        Text("Sharon Smith")
+                        Text(feedItem.creator)
                             .font(.title3)
                     }
                     Spacer()
@@ -26,49 +27,47 @@ struct FeedComponent: View {
                 }
                 .padding(.bottom, 8)
                 
-                Image("image1")
+                Image(feedItem.image)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width:(proxy.size.width) - 32, height: 400)
+                    .frame(width: deviceWidth - 32, height: 400)
                     .clipShape(RoundedRectangle(cornerRadius: 16))
-                    .padding(.bottom, 16)
-                HStack{
+                    .padding(.bottom, 4)
+                HStack(alignment:.top){
                     VStack(alignment:.leading, spacing: 8){
                         Text(Formatter.formatDate(feedItem.publishedAt))
-                            .font(.headline)
-                            .foregroundStyle(.white.opacity(0.5))
-                        Text("The Future of Software Development")
-                            .font(.title2)
+                            .font(.subheadline.bold())
+                            .foregroundStyle(Color("text.tertiary"))
+                        Text(feedItem.title)
+                            .font(.title3.bold())
+                        HStack{
                             
+                             ForEach(feedItem.tags, id: \.name ) { tag in
+                             TagItem(tagText:tag.name)
+                             
+                             }
+                             
+                        }
                     }.padding(.trailing, 24)
+                        .padding(.bottom, 8)
                     Spacer()
                     Image(systemName: "bookmark")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 20)
+                        .frame(width: 16)
                 }
-                .font(.title)
-                HStack{
-                    /*
-                     ForEach(feedItem.tags, id: \.name ) { tag in
-                     TagItem(tagText:tag.name)
-                     
-                     }
-                     */
-                    TagItem(tagText:"SwiftUI")
-                    TagItem(tagText:"Software")
-                    TagItem(tagText:"Ai/ml")
-                }
-                Text("This article discusses emerging trends in software development, focusing on methodologies that enhance productivity and creativity in coding practices.")
+               
+                Text(feedItem.description)
                     .font(.body)
-                    .foregroundStyle(.white.opacity(0.75))
+                    .foregroundStyle(Color("text.secondary"))
+                .font(.title)
             }
-            .padding(.horizontal)
+            .padding(.bottom, 48)
             
         }
     }
-}
+
 
 #Preview {
-    FeedComponent()
+    CuriosityView()
 }

@@ -34,11 +34,11 @@ struct ContentView: View {
                 
             }
             if showViewTwo {
-                ViewTwo()
+                FunView()
                     .scaleEffect(scaling)
                     .transition(.move(edge: .leading))
             } else {
-                ViewOne()
+                CuriosityView()
                     .scaleEffect(scaling)
                     .transition(.move(edge: .trailing))
             }
@@ -76,16 +76,6 @@ struct ContentView: View {
     ContentView()
 }
 
-struct ViewOne: View {
-    @State var feedItem = FeedItem()
-    var dataservice = DataService()
-    var body: some View {
-        FeedComponent(feedItem: feedItem)
-        .onAppear{
-            dataservice.loadFeedItems()
-        }
-    }
-}
 
 struct ViewTwo: View {
     @State var feedItem: FeedItem?
