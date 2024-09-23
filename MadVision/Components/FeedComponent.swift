@@ -32,11 +32,11 @@ struct FeedComponent: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(width: deviceWidth - 32, height: 400)
                     .clipShape(RoundedRectangle(cornerRadius: 16))
-                    .padding(.bottom, 4)
+                    .padding(.bottom, 12)
                 HStack(alignment:.top){
                     VStack(alignment:.leading, spacing: 8){
                         Text(Formatter.formatDate(feedItem.publishedAt))
-                            .font(.subheadline.bold())
+                            .font(.subheadline)
                             .foregroundStyle(Color("text.tertiary"))
                         Text(feedItem.title)
                             .font(.title3.bold())
@@ -71,3 +71,5 @@ struct FeedComponent: View {
 #Preview {
     CuriosityView()
 }
+
+

@@ -24,6 +24,7 @@ struct ContentView: View {
                 .fontWeight(.semibold)
                 Spacer()
                 Text(Formatter.timeFormatted(totalSeconds: countdown))
+                    .contentTransition(.numericText())
                     .onAppear() {
                         startCountdown()
                     }
@@ -31,41 +32,66 @@ struct ContentView: View {
                     .foregroundStyle(.gray)
                     .padding(.horizontal, 12)
                     .padding(.vertical, 8)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 64)
+                            .stroke(Color("text.tertiary").opacity(0.3))
+                    }
                 
             }
-            if showViewTwo {
-                FunView()
-                    .scaleEffect(scaling)
-                    .transition(.move(edge: .leading))
-            } else {
-                CuriosityView()
-                    .scaleEffect(scaling)
-                    .transition(.move(edge: .trailing))
+            ZStack{
+                if showViewTwo {
+                    FunView()
+                        .scaleEffect(scaling)
+                        .transition(customTransition)
+                } else {
+                    CuriosityView()
+                        .scaleEffect(scaling)
+                        .transition(customTransition)
+                }
             }
+            .clipShape(RoundedRectangle(cornerRadius: 16))
             Text(showViewTwo ? "Click here to go to View One" :"Click here to go to View Two")
                 .onTapGesture {
                     withAnimation {
-                        scaling = 0.8
+                        scaling = 0.7
+                            
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                         withAnimation {
                             showViewTwo.toggle()
                         }
-                        
                     }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
                         withAnimation {
-                            scaling = 1.0
+                            scaling = 1
                         }
                     }
+                    
                 }
         }
+        .preferredColorScheme(.dark)
+        .background()
         .padding(.horizontal, 16)
         
     }
+    
+    var customTransition: AnyTransition {
+        let insertion = AnyTransition.move(edge: showViewTwo ? .trailing : .leading)
+                .combined(with: .scale(scale: 1.0))
+                .animation(.easeInOut)
+        let removal = AnyTransition.move(edge: showViewTwo ? .leading : .trailing)
+                .combined(with: .scale(scale: 0.7))
+                .animation(.easeInOut)
+            
+            return .asymmetric(insertion: insertion, removal: removal)
+        }
+   
+    
     func startCountdown() {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            countdown -= 1
+            withAnimation{
+                countdown -= 1
+            }
         }
     }
     
@@ -77,13 +103,24 @@ struct ContentView: View {
 }
 
 
-struct ViewTwo: View {
-    @State var feedItem: FeedItem?
-    var body: some View {
-        VStack{
+struct FlipTransition: ViewModifier {
+    var progress: CGFloat = 0
+    func body(content: Content) -> some View {
+        content
+            .rotation3DEffect(.degrees(progress * 180), axis: (x: 0, y: 1, z: 0))
             
-            RoundedRectangle(cornerRadius: 16)
-                .fill(Color.black.gradient)
-        }
+            
     }
+}
+
+extension AnyTransition {
+    static let flip: AnyTransition = .modifier(
+        active: FlipTransition(progress: 1),
+        identity: FlipTransition()
+    )
+    static let reverseFlip: AnyTransition = .modifier(
+        active: FlipTransition(progress: -1),
+        identity: FlipTransition()
+    )
+    
 }

@@ -18,6 +18,7 @@ struct FunView: View {
                 }
             }
         }
+        .background()
             .onAppear{
                 if let loadedItems = dataservice.loadFeedItems() {
                     feedItem = loadedItems // Update the state with the loaded feed items
