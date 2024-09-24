@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FeedComponent: View {
+struct CuriousComponent: View {
     var feedItem = FeedItem()
     let deviceWidth = UIScreen.main.bounds.width
     var body: some View {

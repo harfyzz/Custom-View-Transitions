@@ -16,6 +16,7 @@ struct FeedItem: Codable, Identifiable {
     var isSaved: Bool = false
     var description: String = ""
     var publishedAt: Date = Date()
+    var isFun: Bool = false
     var tags = [Tag] ()
 }
 

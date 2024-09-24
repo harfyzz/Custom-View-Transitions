@@ -1,283 +1,303 @@
 [
-    {
-        "id": "8a3d3e99-fcd2-4c81-b45a-16dcd0d84d03",
-        "creator": "Alice Smith",
-        "creatoravatar": "avatar1",
-        "title": "Exploring AI in Art",
-        "image": "image1",
-        "isSaved": false,
-        "description": "This article provides a comprehensive overview of how artificial intelligence is revolutionizing the world of contemporary art and creative expression.",
-        "publishedAt": "2023-01-01T12:00:00Z",
-        "tags": [
-            {"name": "art"},
-            {"name": "ai/ml"}
-        ]
-    },
-    {
-        "id": "f7e3b1c5-d2b1-47d5-bb4b-3c26b87e58d7",
-        "creator": "Bob Johnson",
-        "creatoravatar": "avatar2",
-        "title": "The Future of Software Development",
-        "image": "image2",
-        "isSaved": true,
-        "description": "This article discusses emerging trends in software development, focusing on methodologies that enhance productivity and creativity in coding practices.",
-        "publishedAt": "2023-01-05T12:00:00Z",
-        "tags": [
-            {"name": "software"},
-            {"name": "ai/ml"},
-            {"name": "finance"}
-        ]
-    },
-    {
-        "id": "4e2d27a8-9462-4b8e-9341-68b9d2e98fbb",
-        "creator": "Charlie Brown",
-        "creatoravatar": "avatar3",
-        "title": "Investing in the Age of AI",
-        "image": "image3",
-        "isSaved": false,
-        "description": "This piece explores how AI-driven tools are reshaping investment strategies, helping investors make informed decisions based on data analysis.",
-        "publishedAt": "2023-01-10T12:00:00Z",
-        "tags": [
-            {"name": "finance"},
-            {"name": "ai/ml"}
-        ]
-    },
-    {
-        "id": "ac8f8819-5f9b-4e87-93f3-5d92711b3567",
-        "creator": "Diana Prince",
-        "creatoravatar": "avatar4",
-        "title": "Creative Coding: Merging Art and Tech",
-        "image": "image4",
-        "isSaved": true,
-        "description": "This article highlights how coding is being utilized as a form of artistic expression, blending technology with creativity in innovative ways.",
-        "publishedAt": "2023-01-15T12:00:00Z",
-        "tags": [
-            {"name": "art"},
-            {"name": "software"}
-        ]
-    },
-    {
-        "id": "b12d1a34-9d83-45ae-a6a1-62e569b2998a",
-        "creator": "Eva Green",
-        "creatoravatar": "avatar5",
-        "title": "Machine Learning Basics",
-        "image": "image5",
-        "isSaved": false,
-        "description": "An introductory guide to machine learning, covering essential concepts, techniques, and real-world applications in various industries and fields.",
-        "publishedAt": "2023-01-20T12:00:00Z",
-        "tags": [
-            {"name": "ai/ml"},
-            {"name": "software"}
-        ]
-    },
-    {
-        "id": "16e5fcfa-c4e0-40ed-9b51-c60b462b90b1",
-        "creator": "Frank Castle",
-        "creatoravatar": "avatar6",
-        "title": "The Ethics of AI in Finance",
-        "image": "image6",
-        "isSaved": true,
-        "description": "This article examines the ethical implications of using artificial intelligence in financial systems and how it impacts transparency and fairness.",
-        "publishedAt": "2023-01-25T12:00:00Z",
-        "tags": [
-            {"name": "finance"},
-            {"name": "ai/ml"}
-        ]
-    },
-    {
-        "id": "3fd4f2b4-59d7-4cba-80cf-7e5046d79a71",
-        "creator": "Grace Hopper",
-        "creatoravatar": "avatar7",
-        "title": "Digital Art Revolution",
-        "image": "image7",
-        "isSaved": false,
-        "description": "This article discusses the rise of digital art forms and their impact on traditional artistic practices, exploring new mediums and tools.",
-        "publishedAt": "2023-02-01T12:00:00Z",
-        "tags": [
-            {"name": "art"},
-            {"name": "software"}
-        ]
-    },
-    {
-        "id": "0e10c1b4-c53d-4f2d-8c91-56f6e5cf1ef1",
-        "creator": "Harry Potter",
-        "creatoravatar": "avatar8",
-        "title": "AI and the Future of Work",
-        "image": "image8",
-        "isSaved": true,
-        "description": "An in-depth look at how artificial intelligence is transforming job landscapes, changing the nature of work across various sectors and industries.",
-        "publishedAt": "2023-02-05T12:00:00Z",
-        "tags": [
-            {"name": "ai/ml"},
-            {"name": "finance"}
-        ]
-    },
-    {
-        "id": "fa2580ef-bd70-4858-9b98-b2951b46e509",
-        "creator": "Ivy Adams",
-        "creatoravatar": "avatar9",
-        "title": "Augmented Reality in Art",
-        "image": "image9",
-        "isSaved": false,
-        "description": "This article explores how augmented reality is being utilized to enhance the artistic experience, providing interactive elements to traditional artworks.",
-        "publishedAt": "2023-02-10T12:00:00Z",
-        "tags": [
-            {"name": "art"},
-            {"name": "software"}
-        ]
-    },
-    {
-        "id": "b2070b1f-1d8b-4953-b99a-38ee0acfe594",
-        "creator": "John Doe",
-        "creatoravatar": "avatar10",
-        "title": "Blockchain Basics",
-        "image": "image10",
-        "isSaved": true,
-        "description": "An introductory overview of blockchain technology, its core principles, and how it is reshaping various industries, including finance and art.",
-        "publishedAt": "2023-02-15T12:00:00Z",
-        "tags": [
-            {"name": "finance"},
-            {"name": "software"}
-        ]
-    },
-    {
-        "id": "ff80234b-6f94-4f88-8c9f-3f2a4f34c34e",
-        "creator": "Katherine Johnson",
-        "creatoravatar": "avatar11",
-        "title": "The Power of Data Visualization",
-        "image": "image11",
-        "isSaved": false,
-        "description": "This article discusses the importance of data visualization in enhancing understanding and decision-making across various fields and applications.",
-        "publishedAt": "2023-02-20T12:00:00Z",
-        "tags": [
-            {"name": "ai/ml"},
-            {"name": "software"}
-        ]
-    },
-    {
-        "id": "3ec41a9a-3d58-4ef0-a4dc-83d7ac78746d",
-        "creator": "Leo Messi",
-        "creatoravatar": "avatar12",
-        "title": "Creative Applications of AI",
-        "image": "image12",
-        "isSaved": true,
-        "description": "This article highlights various creative applications of artificial intelligence in art, music, and literature, showcasing how technology enhances human creativity.",
-        "publishedAt": "2023-02-25T12:00:00Z",
-        "tags": [
-            {"name": "art"},
-            {"name": "ai/ml"}
-        ]
-    },
-    {
-        "id": "59fd7fa6-64e7-4b5a-bc4f-ade3c7debcfd",
-        "creator": "Maya Angelou",
-        "creatoravatar": "avatar13",
-        "title": "The Role of AI in Education",
-        "image": "image13",
-        "isSaved": false,
-        "description": "This piece explores the transformative role of artificial intelligence in education, focusing on personalized learning and innovative teaching methods.",
-        "publishedAt": "2023-03-01T12:00:00Z",
-        "tags": [
-            {"name": "ai/ml"},
-            {"name": "software"}
-        ]
-    },
-    {
-        "id": "7ab66a7b-b3c3-4078-a8f3-3e6b9cfcfa10",
-        "creator": "Nelson Mandela",
-        "creatoravatar": "avatar14",
-        "title": "AI in the Nonprofit Sector",
-        "image": "image14",
-        "isSaved": true,
-        "description": "This article discusses how artificial intelligence is being utilized by nonprofit organizations to improve efficiency and enhance their outreach efforts.",
-        "publishedAt": "2023-03-05T12:00:00Z",
-        "tags": [
-            {"name": "ai/ml"},
-            {"name": "finance"}
-        ]
-    },
-    {
-        "id": "9c45c2c7-54e7-44d7-883b-342dcf276485",
-        "creator": "Oprah Winfrey",
-        "creatoravatar": "avatar15",
-        "title": "The Intersection of Art and Technology",
-        "image": "image15",
-        "isSaved": false,
-        "description": "This article explores the dynamic relationship between art and technology, discussing how innovations are influencing modern artistic practices and expressions.",
-        "publishedAt": "2023-03-10T12:00:00Z",
-        "tags": [
-            {"name": "art"},
-            {"name": "software"}
-        ]
-    },
-    {
-        "id": "1e54e2f6-8c92-4aa5-9a2e-b1e7e7d5a3f4",
-        "creator": "Rosa Parks",
-        "creatoravatar": "avatar16",
-        "title": "Financial Technologies and AI",
-        "image": "image16",
-        "isSaved": true,
-        "description": "This piece explores the integration of financial technologies with artificial intelligence, showcasing innovative solutions that enhance financial planning and management.",
-        "publishedAt": "2023-03-15T12:00:00Z",
-        "tags": [
-            {"name": "finance"},
-            {"name": "ai/ml"}
-        ]
-    },
-    {
-        "id": "d9f1c52a-6f00-40e1-9de6-68b57627269d",
-        "creator": "Albert Einstein",
-        "creatoravatar": "avatar17",
-        "title": "AI in Scientific Research",
-        "image": "image17",
-        "isSaved": false,
-        "description": "This article discusses how artificial intelligence is accelerating discoveries in scientific research, enabling researchers to analyze vast amounts of data efficiently.",
-        "publishedAt": "2023-03-20T12:00:00Z",
-        "tags": [
-            {"name": "ai/ml"},
-            {"name": "software"}
-        ]
-    },
-    {
-        "id": "ce9b6d48-5b6f-4ef7-9083-6bdb006d60fa",
-        "creator": "Marie Curie",
-        "creatoravatar": "avatar18",
-        "title": "Art Therapy and AI",
-        "image": "image18",
-        "isSaved": true,
-        "description": "This article explores the innovative combination of artificial intelligence and art therapy, focusing on how technology can enhance mental health treatments.",
-        "publishedAt": "2023-03-25T12:00:00Z",
-        "tags": [
-            {"name": "art"},
-            {"name": "ai/ml"}
-        ]
-    },
-    {
-        "id": "b785f07d-3d85-40cb-a8eb-06b0ed564c54",
-        "creator": "Leonardo da Vinci",
-        "creatoravatar": "avatar19",
-        "title": "Digital Innovations in Traditional Art",
-        "image": "image19",
-        "isSaved": false,
-        "description": "This article discusses how digital tools and technologies are transforming traditional art forms, creating new opportunities for artists and audiences alike.",
-        "publishedAt": "2023-03-30T12:00:00Z",
-        "tags": [
-            {"name": "art"},
-            {"name": "software"}
-        ]
-    },
-    {
-        "id": "d799e2e6-4b4b-4b46-a1ee-3f7c57c12a8f",
-        "creator": "Pablo Picasso",
-        "creatoravatar": "avatar20",
-        "title": "Finance Meets Creativity",
-        "image": "image20",
-        "isSaved": true,
-        "description": "This article explores the intersection of finance and creativity, discussing how innovative approaches can enhance financial planning and decision-making.",
-        "publishedAt": "2023-04-01T12:00:00Z",
-        "tags": [
-            {"name": "finance"},
-            {"name": "art"}
-        ]
-    }
+  {
+    "id": "b5b5dc26-4c71-4b95-b495-1c680ba12c68",
+    "creator": "Callum",
+    "creatoravatar": "avatar1",
+    "title": "Exploring AI",
+    "image": "image1",
+    "isSaved": false,
+    "description": "An in-depth look at artificial intelligence and its applications in modern software development and beyond.",
+    "publishedAt": "2023-08-12T10:15:30Z",
+    "isFun": true,
+    "tags": [
+      { "name": "AI" },
+      { "name": "Software" }
+    ]
+  },
+  {
+    "id": "9d5b5dc2-3c81-4b85-a495-1c680b32c1d4",
+    "creator": "Alex",
+    "creatoravatar": "avatar2",
+    "title": "Machine Learning Simplified",
+    "image": "image2",
+    "isSaved": false,
+    "description": "Breaking down machine learning for beginners, with practical examples to get started.",
+    "publishedAt": "2023-09-01T12:25:40Z",
+    "isFun": true,
+    "tags": [
+      { "name": "AI" },
+      { "name": "ML" },
+      { "name": "Education" }
+    ]
+  },
+  {
+    "id": "a4f0dc2e-54c5-41f2-9461-5d0508306c5d",
+    "creator": "Sandra",
+    "creatoravatar": "avatar3",
+    "title": "The Future of Finance",
+    "image": "image3",
+    "isSaved": true,
+    "description": "Exploring the latest trends in fintech and the transformative impact of AI on financial services.",
+    "publishedAt": "2023-09-15T14:05:30Z",
+    "isFun": true,
+    "tags": [
+      { "name": "Finance" },
+      { "name": "AI" }
+    ]
+  },
+  {
+    "id": "7e25bba9-2645-4781-9b50-3ab3b0b72af9",
+    "creator": "David",
+    "creatoravatar": "avatar4",
+    "title": "Art in the Digital Age",
+    "image": "image4",
+    "isSaved": false,
+    "description": "How digital tools are changing the way art is created, shared, and appreciated in the 21st century.",
+    "publishedAt": "2023-10-10T09:45:00Z",
+    "isFun": true,
+    "tags": [
+      { "name": "Art" },
+      { "name": "Technology" }
+    ]
+  },
+  {
+    "id": "c39be5a2-4b2e-4389-9617-619de514d99f",
+    "creator": "Adam",
+    "creatoravatar": "avatar5",
+    "title": "Creative Coding",
+    "image": "image5",
+    "isSaved": true,
+    "description": "A deep dive into the intersection of creativity and coding, showing how art and programming can coexist.",
+    "publishedAt": "2023-07-22T11:30:00Z",
+    "isFun": true,
+    "tags": [
+      { "name": "Art" },
+      { "name": "Coding" }
+    ]
+  },
+  {
+    "id": "9cb7dc88-5e4b-4c97-8f85-bb089bba9e7c",
+    "creator": "Robinson",
+    "creatoravatar": "avatar6",
+    "title": "Innovating in Software",
+    "image": "image6",
+    "isSaved": false,
+    "description": "The most important innovations driving software development in today’s fast-paced tech landscape.",
+    "publishedAt": "2023-11-02T13:00:00Z",
+    "isFun": true,
+    "tags": [
+      { "name": "Software" },
+      { "name": "Innovation" }
+    ]
+  },
+  {
+    "id": "a57f7c2e-643d-48d7-bc18-d5c2f5085626",
+    "creator": "Luke",
+    "creatoravatar": "avatar7",
+    "title": "Breaking Down Blockchain",
+    "image": "image7",
+    "isSaved": true,
+    "description": "Explaining blockchain technology and its growing role in the financial and tech industries.",
+    "publishedAt": "2023-09-18T14:15:30Z",
+    "isFun": true,
+    "tags": [
+      { "name": "Blockchain" },
+      { "name": "Finance" }
+    ]
+  },
+  {
+    "id": "58dfee9e-bc7f-4d7d-bc18-c5f2f5f856e4",
+    "creator": "Naveed",
+    "creatoravatar": "avatar8",
+    "title": "The Art of AI",
+    "image": "image8",
+    "isSaved": false,
+    "description": "An artistic exploration of how AI is used to generate creative works, from visual art to music.",
+    "publishedAt": "2023-10-30T08:25:40Z",
+    "isFun": true,
+    "tags": [
+      { "name": "AI" },
+      { "name": "Art" }
+    ]
+  },
+  {
+    "id": "5d76ef7e-a972-4c94-a5d2-450bbbd33f1a",
+    "creator": "Afeez",
+    "creatoravatar": "avatar9",
+    "title": "The Rise of Fintech",
+    "image": "image9",
+    "isSaved": false,
+    "description": "Fintech is reshaping the financial industry, enabling more accessible and efficient financial services worldwide.",
+    "publishedAt": "2023-12-01T16:00:00Z",
+    "isFun": true,
+    "tags": [
+      { "name": "Finance" },
+      { "name": "Tech" }
+    ]
+  },
+  {
+    "id": "f328a25c-e2ba-42e6-bf36-5f3a24681fd5",
+    "creator": "Sebastian",
+    "creatoravatar": "avatar10",
+    "title": "The Next Big Thing in Tech",
+    "image": "image10",
+    "isSaved": true,
+    "description": "A look at the latest trends and innovations set to transform technology in the coming decade.",
+    "publishedAt": "2023-12-15T17:30:00Z",
+    "isFun": true,
+    "tags": [
+      { "name": "Technology" },
+      { "name": "Innovation" }
+    ]
+  },
+  {
+    "id": "4f9f345d-9dc5-426b-bc5e-1c0955a59e21",
+    "creator": "Lila",
+    "creatoravatar": "avatar11",
+    "title": "AI in Healthcare",
+    "image": "image11",
+    "isSaved": true,
+    "description": "How AI is revolutionizing healthcare, improving diagnosis, treatment, and patient care around the world.",
+    "publishedAt": "2023-11-20T12:00:00Z",
+    "isFun": false,
+    "tags": [
+      { "name": "AI" },
+      { "name": "Healthcare" }
+    ]
+  },
+  {
+    "id": "3af5f5b2-4e7e-4d8d-99a7-e36e7e29b2a4",
+    "creator": "Bob",
+    "creatoravatar": "avatar12",
+    "title": "Software Architecture",
+    "image": "image12",
+    "isSaved": false,
+    "description": "An introduction to software architecture and how it shapes the way complex applications are built.",
+    "publishedAt": "2023-10-14T11:45:00Z",
+    "isFun": false,
+    "tags": [
+      { "name": "Software" },
+      { "name": "Architecture" }
+    ]
+  },
+  {
+    "id": "620d2843-4e9d-4a96-bf36-7f8a2794fa89",
+    "creator": "Charlie",
+    "creatoravatar": "avatar13",
+    "title": "Deep Learning Advancements",
+    "image": "image13",
+    "isSaved": true,
+    "description": "A discussion on the latest advancements in deep learning and their implications for AI development.",
+    "publishedAt": "2023-10-29T14:30:00Z",
+    "isFun": false,
+    "tags": [
+      { "name": "AI" },
+      { "name": "ML" }
+    ]
+  },
+  {
+    "id": "a2b967d8-55b5-434b-bfa9-7e5a2b905d9e",
+    "creator": "Diana",
+    "creatoravatar": "avatar14",
+    "title": "Smart Cities of the Future",
+    "image": "image14",
+    "isSaved": true,
+    "description": "How smart technologies are transforming urban living, from smart homes to autonomous transportation.",
+    "publishedAt": "2023-11-06T08:00:00Z",
+    "isFun": false,
+    "tags": [
+      { "name": "Technology" },
+      { "name": "Smart Cities" }
+    ]
+  },
+  {
+    "id": "912d90f4-b12a-4c2e-9159-8bb9214b5081",
+    "creator": "Eve",
+    "creatoravatar": "avatar15",
+    "title": "Quantum Computing",
+    "image": "image15",
+    "isSaved": false,
+    "description": "Understanding the basics of quantum computing and its potential to revolutionize technology.",
+    "publishedAt": "2023-12-18T10:30:00Z",
+    "isFun": false,
+    "tags": [
+      { "name": "Quantum" },
+      { "name": "Computing" }
+    ]
+  },
+  {
+    "id": "548e97a4-bb2b-4812-8525-b715b2b9cdd7",
+    "creator": "Frank",
+    "creatoravatar": "avatar16",
+    "title": "Cryptocurrency Basics",
+    "image": "image16",
+    "isSaved": true,
+    "description": "A beginner's guide to understanding how cryptocurrencies work and why they matter in today's digital economy.",
+    "publishedAt": "2023-09-22T15:15:00Z",
+    "isFun": false,
+    "tags": [
+      { "name": "Finance" },
+      { "name": "Cryptocurrency" }
+    ]
+  },
+  {
+    "id": "13a74f6a-1f60-4311-b8aa-baf939a27a74",
+    "creator": "Grace",
+    "creatoravatar": "avatar17",
+    "title": "Robotics in Industry",
+    "image": "image17",
+    "isSaved": false,
+    "description": "The role of robotics in transforming industries such as manufacturing, logistics, and healthcare.",
+    "publishedAt": "2023-10-09T09:30:00Z",
+    "isFun": false,
+    "tags": [
+      { "name": "Robotics" },
+      { "name": "Industry" }
+    ]
+  },
+  {
+    "id": "aa47f2d7-1cf0-47d8-9e48-6b5dfc86b1cc",
+    "creator": "Henry",
+    "creatoravatar": "avatar18",
+    "title": "The Rise of Augmented Reality",
+    "image": "image18",
+    "isSaved": true,
+    "description": "Augmented reality is enhancing user experiences in various sectors, including retail, education, and gaming.",
+    "publishedAt": "2023-12-08T18:45:00Z",
+    "isFun": false,
+    "tags": [
+      { "name": "AR" },
+      { "name": "Technology" }
+    ]
+  },
+  {
+    "id": "759d44c8-20f8-43d8-8431-5f347b69f65e",
+    "creator": "Ivy",
+    "creatoravatar": "avatar19",
+    "title": "AI Ethics and Regulation",
+    "image": "image19",
+    "isSaved": false,
+    "description": "A discussion on the ethical concerns surrounding AI and the need for regulatory frameworks.",
+    "publishedAt": "2023-11-30T07:15:00Z",
+    "isFun": false,
+    "tags": [
+      { "name": "AI" },
+      { "name": "Ethics" }
+    ]
+  },
+  {
+    "id": "9c9fda26-5bfa-4d7e-98b7-34bf4954c815",
+    "creator": "Jack",
+    "creatoravatar": "avatar20",
+    "title": "Big Data in Business",
+    "image": "image20",
+    "isSaved": true,
+    "description": "Big data is driving smarter business decisions and transforming industries with its predictive capabilities.",
+    "publishedAt": "2023-10-04T08:10:00Z",
+    "isFun": false,
+    "tags": [
+      { "name": "Data" },
+      { "name": "Business" }
+    ]
+  }
 ]

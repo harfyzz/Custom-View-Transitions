@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainView: View {
     @State private var isFunMode = false
     @State private var pageTitle = "Curious mode"
     @State private var countdown = 1800
@@ -68,6 +68,8 @@ struct ContentView: View {
                         .onTapGesture {
                             withAnimation {
                                 showOptions = false
+                            }
+                            withAnimation(.timingCurve(0.82, 0.03, 0.17, 1.01, duration: 0.6)){
                                 isFunMode = false
                                 pageTitle = "Curious mode"
                             }
@@ -93,6 +95,8 @@ struct ContentView: View {
                         .onTapGesture {
                             withAnimation {
                                 showOptions = false
+                            }
+                            withAnimation(.timingCurve(0.82, 0.03, 0.17, 1.01, duration: 0.6)){
                                 isFunMode = true
                                 pageTitle = "Fun mode"
                             }
@@ -110,7 +114,7 @@ struct ContentView: View {
                                 .stroke(.gray.opacity(isTransitioning ? 6 : 0))
                         }
                         .scaleEffect(isTransitioning || showOptions ? 0.9 : 1)
-                        .transition(.reverseFlip)
+                        .transition(.reverseMove)
                 } else {
                     CuriosityView()
                         .overlay {
@@ -118,7 +122,7 @@ struct ContentView: View {
                                 .stroke(.gray.opacity(isTransitioning ? 6 : 0))
                         }
                         .scaleEffect(isTransitioning || showOptions ? 0.9 : 1)
-                        .transition(.flip)
+                        .transition(.move)
                 }
             }
             .onTapGesture {
@@ -143,18 +147,6 @@ struct ContentView: View {
         
     }
     
-    var customTransition: AnyTransition {
-        let insertion = AnyTransition.move(edge: isFunMode ? .trailing : .leading)
-            .combined(with: .scale(scale: 1.0))
-            .animation(.easeInOut)
-        let removal = AnyTransition.move(edge: isFunMode ? .leading : .trailing)
-            .combined(with: .scale(scale: 0.7))
-            .animation(.easeInOut)
-        
-        return .asymmetric(insertion: insertion, removal: removal)
-    }
-    
-    
     func startCountdown() {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             withAnimation{
@@ -162,34 +154,29 @@ struct ContentView: View {
             }
         }
     }
-    
-    
 }
 
 #Preview {
-    ContentView()
+    MainView()
 }
 
 
-struct FlipTransition: ViewModifier {
+struct MoveTransition: ViewModifier {
     var progress: CGFloat = 0
     func body(content: Content) -> some View {
         content
             .offset(x: progress * UIScreen.main.bounds.width, y: 0)
-        
-        
-        
     }
 }
 
 extension AnyTransition {
-    static let flip: AnyTransition = .modifier(
-        active: FlipTransition(progress: 1),
-        identity: FlipTransition()
+    static let move: AnyTransition = .modifier(
+        active: MoveTransition(progress: 1),
+        identity: MoveTransition()
     )
-    static let reverseFlip: AnyTransition = .modifier(
-        active: FlipTransition(progress: -1),
-        identity: FlipTransition()
+    static let reverseMove: AnyTransition = .modifier(
+        active: MoveTransition(progress: -1),
+        identity: MoveTransition()
     )
     
 }

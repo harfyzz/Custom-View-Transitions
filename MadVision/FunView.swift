@@ -13,8 +13,8 @@ struct FunView: View {
     var body: some View {
         ScrollView{
             VStack{
-                ForEach(feedItem) {item in
-                    FeedComponent(feedItem: item)
+                ForEach(feedItem.filter { $0.isFun }) {item in
+                    FunComponent(feedItem: item)
                 }
             }
         }.scrollIndicators(.hidden)
