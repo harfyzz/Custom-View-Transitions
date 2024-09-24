@@ -13,9 +13,10 @@ struct MainView: View {
     @State private var countdown = 1800
     @State var feedItem: [FeedItem] = []
     @State var showOptions = false
-    @State var isTransitioning = false
     var body: some View {
         VStack(spacing:16){
+            
+            //Title and Timer
             VStack(alignment: .leading) {
                 HStack{
                     HStack{
@@ -27,7 +28,6 @@ struct MainView: View {
                     .fontWeight(.semibold)
                     Spacer()
                     Text(Formatter.timeFormatted(totalSeconds: countdown))
-                        .contentTransition(.numericText())
                         .onAppear() {
                             startCountdown()
                         }
@@ -41,12 +41,14 @@ struct MainView: View {
                         }
                     
                 }.background()
-                .onTapGesture {
-                    withAnimation(.spring(duration: 0.3)) {
-                        showOptions.toggle()
+                    .onTapGesture {
+                        withAnimation(.spring(duration: 0.3)) {
+                            showOptions.toggle()
+                        }
                     }
-                }
-                .padding(.bottom, showOptions ? 16 : 0)
+                    .padding(.bottom, showOptions ? 16 : 0)
+                
+                //Option to Switch
                 if showOptions {
                     HStack {
                         Image(systemName: "brain")
@@ -73,7 +75,7 @@ struct MainView: View {
                                 isFunMode = false
                                 pageTitle = "Curious mode"
                             }
-                            }
+                        }
                     HStack {
                         Image(systemName: "lasso.badge.sparkles")
                             .aspectRatio(contentMode: .fit)
@@ -100,28 +102,21 @@ struct MainView: View {
                                 isFunMode = true
                                 pageTitle = "Fun mode"
                             }
-                            }
+                        }
                 }
                 
             }.padding(.bottom, showOptions ? 8 : 0)
-                
             
+            
+            //Timeline
             ZStack{
                 if isFunMode {
                     FunView()
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 16)
-                                .stroke(.gray.opacity(isTransitioning ? 6 : 0))
-                        }
-                        .scaleEffect(isTransitioning || showOptions ? 0.9 : 1)
+                        .scaleEffect(showOptions ? 0.9 : 1)
                         .transition(.reverseMove)
                 } else {
                     CuriosityView()
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 16)
-                                .stroke(.gray.opacity(isTransitioning ? 6 : 0))
-                        }
-                        .scaleEffect(isTransitioning || showOptions ? 0.9 : 1)
+                        .scaleEffect( showOptions ? 0.9 : 1)
                         .transition(.move)
                 }
             }
@@ -160,23 +155,3 @@ struct MainView: View {
     MainView()
 }
 
-
-struct MoveTransition: ViewModifier {
-    var progress: CGFloat = 0
-    func body(content: Content) -> some View {
-        content
-            .offset(x: progress * UIScreen.main.bounds.width, y: 0)
-    }
-}
-
-extension AnyTransition {
-    static let move: AnyTransition = .modifier(
-        active: MoveTransition(progress: 1),
-        identity: MoveTransition()
-    )
-    static let reverseMove: AnyTransition = .modifier(
-        active: MoveTransition(progress: -1),
-        identity: MoveTransition()
-    )
-    
-}
