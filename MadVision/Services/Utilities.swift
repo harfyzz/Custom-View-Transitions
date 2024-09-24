@@ -52,3 +52,6 @@ extension AnyTransition {
     )
     
 }
+#Preview {
+    MainView()
+}

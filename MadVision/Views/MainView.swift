@@ -10,13 +10,15 @@ import SwiftUI
 struct MainView: View {
     @State private var isFunMode = false
     @State private var pageTitle = "Curious mode"
-    @State private var countdown = 1800
+    @State private var countdown = 150
+    @State private var isTriming = false
+    @State private var isTransitioning = false
     @State var feedItem: [FeedItem] = []
     @State var showOptions = false
     var body: some View {
         VStack(spacing:16){
             
-            //Title and Timer
+            //Title and Timer --------------------------------------------------------------------
             VStack(alignment: .leading) {
                 HStack{
                     HStack{
@@ -27,17 +29,34 @@ struct MainView: View {
                     }
                     .fontWeight(.semibold)
                     Spacer()
+                    
+                    //Timer--------------------------------------------------------------------
                     Text(Formatter.timeFormatted(totalSeconds: countdown))
                         .onAppear() {
                             startCountdown()
                         }
                     
                         .foregroundStyle(.gray)
+                        .background()
                         .padding(.horizontal, 12)
                         .padding(.vertical, 8)
                         .overlay {
                             RoundedRectangle(cornerRadius: 64)
-                                .stroke(Color("text.tertiary").opacity(0.5))
+                                .trim(from: 0, to: isTriming ? 1 : 0)
+                                .stroke(lineWidth: 3)
+                                .animation(.linear(duration: Double(countdown)), value: isTriming)
+                                .onChange(of: countdown) { oldValue, newValue in
+                                    if countdown == 0 {
+                                        withAnimation (.timingCurve(0.82, 0.03, 0.17, 1.01, duration: 0.6)){
+                                            isFunMode.toggle()
+                                            countdown = 150
+                                        }
+                                        
+                                    }
+                                }
+                        }
+                        .onAppear() {
+                            isTriming = true
                         }
                     
                 }.background()
@@ -48,7 +67,7 @@ struct MainView: View {
                     }
                     .padding(.bottom, showOptions ? 16 : 0)
                 
-                //Option to Switch
+                //Options to Switch----------------------------------------------------------------
                 if showOptions {
                     HStack {
                         Image(systemName: "brain")
@@ -74,7 +93,13 @@ struct MainView: View {
                             withAnimation(.timingCurve(0.82, 0.03, 0.17, 1.01, duration: 0.6)){
                                 isFunMode = false
                                 pageTitle = "Curious mode"
+                                isTransitioning = true
                             }
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                                withAnimation{
+                                    isTransitioning = false
+                                }}
                         }
                     HStack {
                         Image(systemName: "lasso.badge.sparkles")
@@ -101,22 +126,27 @@ struct MainView: View {
                             withAnimation(.timingCurve(0.82, 0.03, 0.17, 1.01, duration: 0.6)){
                                 isFunMode = true
                                 pageTitle = "Fun mode"
+                                isTransitioning = true
                             }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                                withAnimation{
+                                    isTransitioning = false
+                                }}
                         }
                 }
                 
             }.padding(.bottom, showOptions ? 8 : 0)
             
             
-            //Timeline
+            //Timelines--------------------------------------------------------------------
             ZStack{
                 if isFunMode {
                     FunView()
-                        .scaleEffect(showOptions ? 0.9 : 1)
+                        .scaleEffect(showOptions || isTransitioning ? 0.9 : 1)
                         .transition(.reverseMove)
                 } else {
                     CuriosityView()
-                        .scaleEffect( showOptions ? 0.9 : 1)
+                        .scaleEffect( showOptions || isTransitioning ? 0.9 : 1)
                         .transition(.move)
                 }
             }
@@ -135,9 +165,8 @@ struct MainView: View {
             .clipShape(RoundedRectangle(cornerRadius: 16))
             
         }
-        .ignoresSafeArea()
+        .edgesIgnoringSafeArea(.bottom)
         .background()
-        .padding(.top, 4)
         .padding(.horizontal, 16)
         
     }
@@ -148,6 +177,7 @@ struct MainView: View {
                 countdown -= 1
             }
         }
+        
     }
 }
 
