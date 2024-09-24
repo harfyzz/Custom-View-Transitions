@@ -11,8 +11,8 @@ import SwiftUI
 struct Formatter {
    static func formatDate(_ date: Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .long // This gives you "April 20, 2024"
-        dateFormatter.timeStyle = .none // No time information
+        dateFormatter.dateStyle = .long 
+        dateFormatter.timeStyle = .none
         
         return dateFormatter.string(from: date)
     }

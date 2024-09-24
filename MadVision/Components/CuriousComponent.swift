@@ -12,7 +12,7 @@ struct CuriousComponent: View {
     let deviceWidth = UIScreen.main.bounds.width
     var body: some View {
         
-        VStack(spacing:12){
+        VStack(alignment:.leading, spacing:12){
                 HStack {
                     HStack{
                         Image(feedItem.creatoravatar)
