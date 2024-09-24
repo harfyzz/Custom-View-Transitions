@@ -8,84 +8,152 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showViewTwo = false
-    @State private var pageTitle = "Curiosity"
+    @State private var isFunMode = false
+    @State private var pageTitle = "Curious mode"
     @State private var countdown = 1800
     @State var feedItem: [FeedItem] = []
-    @State var scaling: Double = 1.0
+    @State var showOptions = false
+    @State var isTransitioning = false
     var body: some View {
         VStack(spacing:16){
-            HStack{
+            VStack(alignment: .leading) {
                 HStack{
-                    Text(pageTitle)
-                        .font(.title3)
-                    Image(systemName: "chevron.down")
+                    HStack{
+                        Text(pageTitle)
+                            .font(.title3)
+                            .contentTransition(.numericText())
+                        Image(systemName: showOptions ? "chevron.up" : "chevron.down")
+                    }
+                    .fontWeight(.semibold)
+                    Spacer()
+                    Text(Formatter.timeFormatted(totalSeconds: countdown))
+                        .contentTransition(.numericText())
+                        .onAppear() {
+                            startCountdown()
+                        }
+                    
+                        .foregroundStyle(.gray)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 8)
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 64)
+                                .stroke(Color("text.tertiary").opacity(0.5))
+                        }
+                    
+                }.background()
+                .onTapGesture {
+                    withAnimation(.spring(duration: 0.3)) {
+                        showOptions.toggle()
+                    }
                 }
-                .fontWeight(.semibold)
-                Spacer()
-                Text(Formatter.timeFormatted(totalSeconds: countdown))
-                    .contentTransition(.numericText())
-                    .onAppear() {
-                        startCountdown()
-                    }
+                .padding(.bottom, showOptions ? 16 : 0)
+                if showOptions {
+                    HStack {
+                        Image(systemName: "brain")
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width:32, height:32)
+                        VStack(alignment: .leading, spacing: 4){
+                            Text("Curious mode")
+                                .fontWeight(.semibold)
+                            Text("learning + 10% fun")
+                                .foregroundStyle(.secondary)
+                        }
+                        Spacer()
+                        if isFunMode == false {
+                            Image(systemName: "checkmark.circle.fill")
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width:32, height:32)
+                        }
+                    }.background()
+                        .onTapGesture {
+                            withAnimation {
+                                showOptions = false
+                                isFunMode = false
+                                pageTitle = "Curious mode"
+                            }
+                            }
+                    HStack {
+                        Image(systemName: "lasso.badge.sparkles")
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width:32, height:32)
+                        VStack(alignment: .leading, spacing: 4){
+                            Text("Fun mode")
+                                .fontWeight(.semibold)
+                            Text("90% fun and a little learning")
+                                .foregroundStyle(.secondary)
+                        }
+                        Spacer()
+                        if isFunMode {
+                            Image(systemName: "checkmark.circle.fill")
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width:32, height:32)
+                        }
+                        
+                    }.background()
+                        .onTapGesture {
+                            withAnimation {
+                                showOptions = false
+                                isFunMode = true
+                                pageTitle = "Fun mode"
+                            }
+                            }
+                }
                 
-                    .foregroundStyle(.gray)
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 8)
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 64)
-                            .stroke(Color("text.tertiary").opacity(0.3))
-                    }
+            }.padding(.bottom, showOptions ? 8 : 0)
                 
-            }
+            
             ZStack{
-                if showViewTwo {
+                if isFunMode {
                     FunView()
-                        .scaleEffect(scaling)
-                        .transition(customTransition)
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(.gray.opacity(isTransitioning ? 6 : 0))
+                        }
+                        .scaleEffect(isTransitioning || showOptions ? 0.9 : 1)
+                        .transition(.reverseFlip)
                 } else {
                     CuriosityView()
-                        .scaleEffect(scaling)
-                        .transition(customTransition)
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(.gray.opacity(isTransitioning ? 6 : 0))
+                        }
+                        .scaleEffect(isTransitioning || showOptions ? 0.9 : 1)
+                        .transition(.flip)
+                }
+            }
+            .onTapGesture {
+                withAnimation{
+                    showOptions = false
+                }
+            }
+            .onScrollPhaseChange { phase,_  in
+                if phase == .interacting {
+                    withAnimation {
+                        showOptions = false
+                    }
                 }
             }
             .clipShape(RoundedRectangle(cornerRadius: 16))
-            Text(showViewTwo ? "Click here to go to View One" :"Click here to go to View Two")
-                .onTapGesture {
-                    withAnimation {
-                        scaling = 0.7
-                            
-                    }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                        withAnimation {
-                            showViewTwo.toggle()
-                        }
-                    }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                        withAnimation {
-                            scaling = 1
-                        }
-                    }
-                    
-                }
+            
         }
-        .preferredColorScheme(.dark)
+        .ignoresSafeArea()
         .background()
+        .padding(.top, 4)
         .padding(.horizontal, 16)
         
     }
     
     var customTransition: AnyTransition {
-        let insertion = AnyTransition.move(edge: showViewTwo ? .trailing : .leading)
-                .combined(with: .scale(scale: 1.0))
-                .animation(.easeInOut)
-        let removal = AnyTransition.move(edge: showViewTwo ? .leading : .trailing)
-                .combined(with: .scale(scale: 0.7))
-                .animation(.easeInOut)
-            
-            return .asymmetric(insertion: insertion, removal: removal)
-        }
-   
+        let insertion = AnyTransition.move(edge: isFunMode ? .trailing : .leading)
+            .combined(with: .scale(scale: 1.0))
+            .animation(.easeInOut)
+        let removal = AnyTransition.move(edge: isFunMode ? .leading : .trailing)
+            .combined(with: .scale(scale: 0.7))
+            .animation(.easeInOut)
+        
+        return .asymmetric(insertion: insertion, removal: removal)
+    }
+    
     
     func startCountdown() {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
@@ -107,9 +175,10 @@ struct FlipTransition: ViewModifier {
     var progress: CGFloat = 0
     func body(content: Content) -> some View {
         content
-            .rotation3DEffect(.degrees(progress * 180), axis: (x: 0, y: 1, z: 0))
-            
-            
+            .offset(x: progress * UIScreen.main.bounds.width, y: 0)
+        
+        
+        
     }
 }
 

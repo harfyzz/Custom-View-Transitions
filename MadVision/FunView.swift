@@ -17,7 +17,7 @@ struct FunView: View {
                     FeedComponent(feedItem: item)
                 }
             }
-        }
+        }.scrollIndicators(.hidden)
         .background()
             .onAppear{
                 if let loadedItems = dataservice.loadFeedItems() {
